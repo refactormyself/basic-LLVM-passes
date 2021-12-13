@@ -10,7 +10,7 @@
 
 // STATISTIC(InstCount, "The # of instruction used.");
 
-using namespace allopsprofilepass;
+using namespace passes;
 using namespace llvm;
 
 PreservedAnalyses AllOpsProfilePass::run(Module &M, ModuleAnalysisManager &AM)
@@ -35,7 +35,7 @@ PreservedAnalyses AllOpsProfilePass::run(Module &M, ModuleAnalysisManager &AM)
   // for (const auto &[inst, count] : AllInstr) { // :( not until C++17 only ugly syntax make it first
   for (std::pair<StringRef, int> elem : AllInstr) {
     llvm::outs() << elem.second << " calls to the instruction '"
-                 << (elem.first == "" ? "Unknown Op" : elem.first) << "'\n";
+                 << (elem.first.empty() ? "Unknown Op" : elem.first) << "'\n";
   }
   return PreservedAnalyses::all(); // run on all modules
 }

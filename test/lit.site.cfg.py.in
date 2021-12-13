@@ -1,0 +1,8 @@
+import os
+
+config.src_dir = r'@CMAKE_SOURCE_DIR@'
+config.build_dir = r'@CMAKE_BINARY_DIR@'
+
+# Load the main config, that is where the real work is done.
+lit_config.load_config(config,
+        os.path.join(config.src_dir, "test/lit.cfg.py"))

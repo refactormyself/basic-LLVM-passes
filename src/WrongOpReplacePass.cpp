@@ -9,7 +9,7 @@
 
 STATISTIC(ReplaceCount, "The # of replaced instructions");
 
-using namespace wrongreplacepass;
+using namespace passes;
 using namespace llvm;
 
 bool InfectWithMultiply(Function &Funct){

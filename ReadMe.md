@@ -38,6 +38,7 @@ For the Compile-Time passes LLVM uses the "LLVM IR". Yes there are other IRs wit
 The implication of this is that you can have as much optimiation has you want. You can mismatch them in any way you want. Of course a pass is implemented as a code and you can simply call a pass's implementation from another, however this couples both passes together. The fuzz about LLVM comes from the fact that you can implement 1000 optimisations seperately and then decide if, when, how or which of them you want to use. This modularity is the power of LLVM.
 
 LLVM IR is a language. A *strongly typed* one! It this language everything exist inside a **Module**. A Module contains one or more **Functions** which represents methods/functions in real code. A function contains one or more **Basic Blocks**. A Basic Block contains one or more **Instructions**. An instruction is a single atomic code operation (e.g mov, add etc). They design as RISC-like instruction and use similar terminologies except that in this case the number of registers is inifinite. You can think of a Basic Block as a set of instruction which are "expected" to execute sequentially without branching.
+LLVM IR is a language. It this language everything exist inside a **Module**. A Module contains one or more **Functions** which represents methods/functions in real code. A function contains one or more **Basic Blocks**. A Basic Block contains one or more **Instructions**. An instruction is a single atomic code operation (e.g mov, add etc). They design as RISC-like instruction and use similar terminologies except that in this case the number of registers is inifinite. You can think of a Basic Block as a set of instruction which are "expected" to execute sequentially without branching.
 
 ## Collection of Simple Passes
 I don't like the work trivial. These are simple passes just to introduce what is possible. I don't regards them as trivial because running these simple passes in the compilation of a trivial application like pacman will give serious insight e.g how many instructions are run after applying O1, O2 or O3 flags. I think this is non trivial but LLVM makes it so simple it can be done with few lines of code.
@@ -50,3 +51,15 @@ I have use the following resources in puting these together.
 - https://llvm.org/docs/WritingAnLLVMNewPMPass.html
 - A. Warzynski “Writing an LLVM Pass: 101” https://www.youtube.com/watch?v=ar7cJl2aBuU 
 - https://www.cs.cornell.edu/~asampson/blog/llvm.html
+- **FunctionInfoPass:** This pass is is a Module pass, i.e. it operates on an LLVM IR module.
+    It prints:
+    - name of the Module
+    - number of functions in that module
+    - name of each of the functions, their return type and the number of their parameters.
+    - the number of basic blocks in each function
+    - the number of instructions in each function
+
+## References:
+I have use the following resources in puting these together.
+- https://llvm.org/docs/WritingAnLLVMNewPMPass.html
+- A. Warzynski “Writing an LLVM Pass: 101” https://www.youtube.com/watch?v=ar7cJl2aBuU 

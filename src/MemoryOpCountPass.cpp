@@ -9,7 +9,7 @@
 
 STATISTIC(MemOpCount, "The # of Memory Operations found.");
 
-using namespace memoryopcountpass;
+using namespace passes;
 using namespace llvm;
 
 PreservedAnalyses MemoryOpCountPass::run(Function &Funct, FunctionAnalysisManager &AM)

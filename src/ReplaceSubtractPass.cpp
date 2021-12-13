@@ -8,7 +8,7 @@
 
 STATISTIC(ReplaceCount, "The # of substituted instructions");
 
-using namespace replacesubtractpass;
+using namespace passes;
 using namespace llvm;
 
 bool RemoveSubtraction(Function &Funct)

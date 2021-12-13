@@ -10,7 +10,7 @@
 
 // STATISTIC(InstCount, "The # of instruction used.");
 
-using namespace functioncallspass;
+using namespace passes;
 using namespace llvm;
 
 PreservedAnalyses FunctionCallsProfilePass::run(Module &M, ModuleAnalysisManager &AM)
