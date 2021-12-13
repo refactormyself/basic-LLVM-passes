@@ -1,2 +1,4 @@
 build/
-tmp/
+# tmp/
+me.sh
+Notes.md
