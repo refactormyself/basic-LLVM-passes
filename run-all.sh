@@ -22,6 +22,7 @@ SRC_CODE="../test-codes/sample_source_code_plus.cpp"
 # Note that -O0 will not work: WHY?!
 clang++ -emit-llvm -S -O1 $SRC_CODE -o $LLVM_IR_FILE
 
+<<<<<<< HEAD
 opt -load-pass-plugin ./libAllOpsProfile.so \
     -passes=allopsprofile \
     -debug-only=allopsprofile \
@@ -52,5 +53,12 @@ opt -load-pass-plugin ./libFunctionCallsProf.so \
     -debug-only=functioncalls \
     $LLVM_IR_FILE \
     -stats -S -o ../out/functioncalls-passed.ll
+=======
+opt -load-pass-plugin ./libCountMemoryOp.so \
+    -passes=countmemop \
+    -debug-only=countmemop \
+    $LLVM_IR_FILE \
+    -stats -S -o ../out/countmemop-passed.ll
+>>>>>>> 4732c44... Add MemoryOpCountPass
 
 cd ..
