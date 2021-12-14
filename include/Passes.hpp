@@ -9,10 +9,6 @@
 namespace allopsprofilepass
 {
     class AllOpsProfilePass : public llvm::PassInfoMixin<AllOpsProfilePass>
-    {
-    public:
-        llvm::PreservedAnalyses run(llvm::Module &M, llvm::ModuleAnalysisManager &AM);
-    };
 
 } // end of allopsprofilepass namespace
 namespace replacemultiplypass
@@ -43,6 +39,14 @@ namespace wrongreplacepass
         llvm::PreservedAnalyses run(llvm::Function &F, llvm::FunctionAnalysisManager &AM);
     };
 } // end of wrongreplacepass namespace
+namespace functioncallspass
+{
+    class FunctionCallsProfilePass : public llvm::PassInfoMixin<FunctionCallsProfilePass>
+    {
+    public:
+        llvm::PreservedAnalyses run(llvm::Module &M, llvm::ModuleAnalysisManager &AM);
+    };
 
+} // end of functioncallspass namespace
 
 #endif // LLVM_NEW_PASSES_PASSES_H

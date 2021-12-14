@@ -47,5 +47,10 @@ opt -load-pass-plugin ./libWrongOpReplace.so \
     -debug-only=wrongreplace \
     $LLVM_IR_FILE \
     -stats -S -o ../out/wrongreplace-passed.ll
+opt -load-pass-plugin ./libFunctionCallsProf.so \
+    -passes=functioncalls \
+    -debug-only=functioncalls \
+    $LLVM_IR_FILE \
+    -stats -S -o ../out/functioncalls-passed.ll
 
 cd ..

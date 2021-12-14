@@ -24,4 +24,5 @@ add_library(ReplaceMultiply SHARED src/ReplaceMultiplyPass.cpp)
 add_library(ReplaceSubtract SHARED src/ReplaceSubtractPass.cpp)
 add_library(RemoveUnreacheables SHARED src/RemoveUnreacheablesPass.cpp)
 add_library(WrongOpReplace SHARED src/WrongOpReplacePass.cpp)
+add_library(FunctionCallsProf SHARED src/FunctionCallsProfilePass.cpp)
 
