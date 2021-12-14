@@ -19,5 +19,5 @@ if(NOT LLVM_ENABLE_RTTI)
 endif()
 
 # Targets:
-add_library(FunctionInfo SHARED src/FunctionInfoPass.cpp)
+add_library(AllOpsProfile SHARED src/AllOpsProfilePass.cpp)
 
