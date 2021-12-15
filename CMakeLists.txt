@@ -21,4 +21,5 @@ endif()
 # Targets:
 add_library(AllOpsProfile SHARED src/AllOpsProfilePass.cpp)
 add_library(ReplaceMultiply SHARED src/ReplaceMultiplyPass.cpp)
+add_library(ReplaceSubtract SHARED src/ReplaceSubtractPass.cpp)
 

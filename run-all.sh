@@ -31,5 +31,10 @@ opt -load-pass-plugin ./libReplaceMultiply.so \
     -debug-only=replace-multiply \
     $LLVM_IR_FILE \
     -stats -S -o ../out/replace-multiply-passed.ll
+opt -load-pass-plugin ./libReplaceSubtract.so \
+    -passes=replace-subtract \
+    -debug-only=replace-subtract \
+    $LLVM_IR_FILE \
+    -stats -S -o ../out/replace-subtract-passed.ll
 
 cd ..

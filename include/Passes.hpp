@@ -18,12 +18,16 @@ namespace allopsprofilepass
 namespace replacemultiplypass
 {
     class ReplaceMultiplyPass : public llvm::PassInfoMixin<ReplaceMultiplyPass>
+} // end of replacesubtractpass namespace
+
+namespace replacesubtractpass
+{
+    class ReplaceSubtractPass : public llvm::PassInfoMixin<ReplaceSubtractPass>
     {
     public:
         llvm::PreservedAnalyses run(llvm::Function &M, llvm::FunctionAnalysisManager &AM);
     };
 
 } // end of replacemultiplypass namespace
-
 
 #endif // LLVM_NEW_PASSES_PASSES_H
