@@ -38,16 +38,13 @@ declare dso_local i32 @__cxa_atexit(void (i8*)*, i8*, i8*) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone uwtable willreturn
 define dso_local i32 @_Z4off1i(i32 %x) local_unnamed_addr #3 {
 entry:
-<<<<<<< HEAD
   %0 = uitofp i32 %x to float
   %1 = fneg float %0
   %2 = fptoui float %1 to i32
   %my-op = add i32 5, %2
   ret i32 %my-op
-=======
   %add = sub i32 5, %x
   ret i32 %add
->>>>>>> 00d1f8c... Attempt to Create RemoveUnreacheablesPass
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone uwtable willreturn
@@ -64,19 +61,13 @@ define dso_local i32 @_Z7subdiveiis(i32 %x, i32 %y, i16 signext %z) local_unname
 entry:
   %div = sdiv i32 %x, %y
   %conv = sext i16 %z to i32
-<<<<<<< HEAD
-  %0 = uitofp i32 %conv to float
   %1 = fneg float %0
   %2 = fptoui float %1 to i32
   %my-op = add i32 1, %2
   %sub = add i32 %my-op, %div
-=======
   %add = sub nsw i32 1, %conv
-  %sub = add i32 %add, %div
->>>>>>> 00d1f8c... Attempt to Create RemoveUnreacheablesPass
   ret i32 %sub
 }
-
 ; Function Attrs: mustprogress norecurse uwtable
 define dso_local i32 @main(i32 %argc, i8** nocapture readnone %argv) local_unnamed_addr #4 {
 entry:

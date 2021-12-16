@@ -42,5 +42,10 @@ opt -load-pass-plugin ./libRemoveUnreacheables.so \
     -debug-only=removeunreables \
     $LLVM_IR_FILE \
     -stats -S -o ../out/removeunreables-passed.ll
+opt -load-pass-plugin ./libWrongOpReplace.so \
+    -passes=wrongreplace \
+    -debug-only=wrongreplace \
+    $LLVM_IR_FILE \
+    -stats -S -o ../out/wrongreplace-passed.ll
 
 cd ..

@@ -32,13 +32,17 @@ namespace replacesubtractpass
 namespace removeunreablespass
 {
     class RemoveUnreacheablesPass : public llvm::PassInfoMixin<RemoveUnreacheablesPass>
+
+} // end of removeunreablespass namespace
+
+namespace wrongreplacepass
+{
+    class WrongOpReplacePass : public llvm::PassInfoMixin<WrongOpReplacePass>
     {
     public:
         llvm::PreservedAnalyses run(llvm::Function &F, llvm::FunctionAnalysisManager &AM);
     };
-
-} // end of removeunreablespass namespace
-
+} // end of wrongreplacepass namespace
 
 
 #endif // LLVM_NEW_PASSES_PASSES_H

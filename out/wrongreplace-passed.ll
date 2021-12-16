@@ -1,4 +1,5 @@
 ; ModuleID = '../test-codes/sample_source_code_plus.cpp'
+; ModuleID = '../tmp/sample.ll'
 source_filename = "../test-codes/sample_source_code_plus.cpp"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
@@ -37,27 +38,54 @@ declare dso_local i32 @__cxa_atexit(void (i8*)*, i8*, i8*) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone uwtable willreturn
 define dso_local i32 @_Z4off1i(i32 %x) local_unnamed_addr #3 {
 entry:
+<<<<<<< HEAD
   %add = sub i32 5, %x
   ret i32 %add
+=======
+  %mymul = mul i32 5, %x
+  %add = sub i32 5, %x
+  ret i32 %mymul
+>>>>>>> 1583dd7... Create WrongOpReplacePass
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone uwtable willreturn
 define dso_local i32 @_Z6divideii(i32 %x, i32 %y) local_unnamed_addr #3 {
 entry:
+<<<<<<< HEAD
   %add = add nsw i32 %y, 2
   %div = sdiv i32 %x, %y
   %add1 = add nsw i32 %add, %div
   ret i32 %add1
+=======
+  %mymul = mul i32 %y, 2
+  %add = add nsw i32 %y, 2
+  %mymul1 = mul i32 %x, %y
+  %div = sdiv i32 %x, %y
+  %mymul2 = mul i32 %mymul, %mymul1
+  %add1 = add nsw i32 %mymul, %mymul1
+  ret i32 %mymul2
+>>>>>>> 1583dd7... Create WrongOpReplacePass
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind readnone uwtable willreturn
 define dso_local i32 @_Z7subdiveiis(i32 %x, i32 %y, i16 signext %z) local_unnamed_addr #3 {
 entry:
+<<<<<<< HEAD
   %div = sdiv i32 %x, %y
   %conv = sext i16 %z to i32
   %add = sub nsw i32 1, %conv
   %sub = add i32 %add, %div
   ret i32 %sub
+=======
+  %mymul = mul i32 %x, %y
+  %div = sdiv i32 %x, %y
+  %conv = sext i16 %z to i32
+  %mymul1 = mul i32 1, %conv
+  %add = sub nsw i32 1, %conv
+  %mymul2 = mul i32 %mymul1, %mymul
+  %sub = add i32 %mymul1, %mymul
+  ret i32 %mymul2
+>>>>>>> 1583dd7... Create WrongOpReplacePass
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
