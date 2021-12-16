@@ -21,10 +21,10 @@ SRC_CODE="../test-codes/sample_source_code_plus.cpp"
 # Note that -O0 will not work: WHY?!
 clang++ -emit-llvm -S -O1 $SRC_CODE -o $LLVM_IR_FILE
 
-opt -load-pass-plugin ./libFunctionInfo.so \
-    -passes=functioninfo \
-    -debug-only=functioninfo \
+opt -load-pass-plugin ./libReplaceMultiply.so \
+    -passes=replace-multiply \
+    -debug-only=replace-multiply \
     $LLVM_IR_FILE \
-    -stats -S -o ../out/functioninfo-passed.ll
+    -stats -S -o ../out/replace-multiply-passed.ll
 
 cd ..
