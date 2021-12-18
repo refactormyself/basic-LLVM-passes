@@ -29,5 +29,16 @@ namespace replacesubtractpass
     };
 
 } // end of replacemultiplypass namespace
+namespace removeunreablespass
+{
+    class RemoveUnreacheablesPass : public llvm::PassInfoMixin<RemoveUnreacheablesPass>
+    {
+    public:
+        llvm::PreservedAnalyses run(llvm::Function &F, llvm::FunctionAnalysisManager &AM);
+    };
+
+} // end of removeunreablespass namespace
+
+
 
 #endif // LLVM_NEW_PASSES_PASSES_H

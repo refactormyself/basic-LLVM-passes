@@ -12,7 +12,8 @@ cd build
 cmake -DLT_LLVM_INSTALL_DIR=$LLVM_DIR ..
 make
 
-LLVM_IR_FILE="../tmp/sample.ll"
+# LLVM_IR_FILE="../tmp/sample.ll"
+LLVM_IR_FILE="../out/replace-subtract-passed.ll"
 SRC_CODE="../test-codes/sample_source_code_plus.cpp"
 
 # # clean off old ll files
@@ -36,5 +37,10 @@ opt -load-pass-plugin ./libReplaceSubtract.so \
     -debug-only=replace-subtract \
     $LLVM_IR_FILE \
     -stats -S -o ../out/replace-subtract-passed.ll
+opt -load-pass-plugin ./libRemoveUnreacheables.so \
+    -passes=removeunreables \
+    -debug-only=removeunreables \
+    $LLVM_IR_FILE \
+    -stats -S -o ../out/removeunreables-passed.ll
 
 cd ..
