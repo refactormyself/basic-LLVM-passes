@@ -26,5 +26,10 @@ opt -load-pass-plugin ./libAllOpsProfile.so \
     -debug-only=allopsprofile \
     $LLVM_IR_FILE \
     -stats -S -o ../out/allopsprofile-passed.ll
+opt -load-pass-plugin ./libReplaceMultiply.so \
+    -passes=replace-multiply \
+    -debug-only=replace-multiply \
+    $LLVM_IR_FILE \
+    -stats -S -o ../out/replace-multiply-passed.ll
 
 cd ..
