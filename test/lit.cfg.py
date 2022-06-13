@@ -15,9 +15,9 @@ config.test_exec_root = os.path.join(config.build_dir, 'test')
 
 # here I am creating a custom substitution which represent the path to the binaries I am testing
 config.substitutions.append(('%profile_all_ops',
-                             os.path.join(config.build_dir, 'AllOpsProfile')))
+                             os.path.join(config.build_dir, 'libAllOpsProfile.so')))
 config.substitutions.append(('%replace_multiply',
-                             os.path.join(config.build_dir, 'ReplaceMultiply')))
+                             os.path.join(config.build_dir, 'libReplaceMultiply.so')))
 
 config.suffixes = ['']
 config.enable_bindings_python = 1

@@ -24,4 +24,5 @@ add_library(FunctionCallsProf SHARED src/FunctionCallsProfilePass.cpp)
 add_library(CountMemoryOp SHARED src/MemoryOpCountPass.cpp)
 add_library(FunctionInfo SHARED src/FunctionInfoPass.cpp)
 
+include(AddLLVM)
 add_subdirectory(test)

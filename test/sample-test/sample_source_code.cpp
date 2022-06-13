@@ -1,3 +1,15 @@
+// RUN: clang++ -emit-llvm -S -O1 %s -o output_ir.ll
+// RUN: opt -load-pass-plugin %profile_all_ops -passes=allopsprofile output_ir.ll -o %t \
+// RUN: | FileCheck %s
+
+// CHECK: CountAllInstr : 6
+// CHECK: 'add' : 3
+// CHECK: 'call' : 8
+// CHECK: 'ret' : 8
+// CHECK: 'sdiv' : 4
+// CHECK: 'sext' : 2
+// CHECK: 'sub' : 4
+
 #include <iostream>
 
 int off1(int x) {return 1-x;}

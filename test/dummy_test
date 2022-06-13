@@ -1,1 +1,18 @@
-RUN: echo "just a dummy"
+RUN: echo "just a dummy file - no language"
+RUN: cat %s | FileCheck %s -check-prefix=MY_PREFIX
+RUN: echo "COM: this is a Dragonfly" | FileCheck %s
+
+
+COM: this is a FileCheck comment line. Dragonfly
+COM: Normally all the lines in this file will be a comment of the file-type's language (e.g. c++, python, etc)
+
+MY_PREFIX: this is not a comment, the second line of this file is test that this Prefix exists
+
+COM: FileCheck always need a file input which specifies the pattern to match.
+COM: The above is just a glimpse, notice that normally I would be piping a different file into it, like line 3
+COM: Next we test a pattern to be matched. We are looking for a DragonFly (try the COM pattern with 'dragon', 'fly', a see magic)
+
+CHECK: COM:
+CHECK: Dragon
+
+COM: FileCheck reference - https://llvm.org/docs/CommandGuide/FileCheck.html#tutorial
